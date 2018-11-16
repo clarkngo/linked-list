@@ -1,3 +1,5 @@
+require_relative 'node'
+
 class LinkedListNode
   attr_accessor :value, :next_node
   
