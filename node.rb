@@ -1,12 +1,8 @@
 class Node
-  attr_accessor :value, :next_node
+  attr_accessor :val, :next
 
-  def initialize(value, next_node = nil)
-    @value = value
-    @next_node = next_node
-  end
-
-  def to_s
-    "Node with value: #{@value}"
+  def initialize(val, next_node)
+      @val = val
+      @next = next_node
   end
 end

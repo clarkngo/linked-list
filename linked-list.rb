@@ -2,8 +2,8 @@ require_relative 'node'
 
 class LinkedList
   attr_accessor :head
-  def initialize
-    @head = nil
+  def initialize(value)
+    @head = Node.new(value, nil)
   end
 
   def add(value)
@@ -26,6 +26,6 @@ class LinkedList
   end
 end
 
-list = LinkedList.new
-list.add(20)
+list1 = LinkedList.new(12)
+list2 = LinkedList.new(122, list1)
 list.print_list
