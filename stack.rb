@@ -1,4 +1,4 @@
-require_relative 'linked_list'
+require_relative 'linked-list'
 
 class Stack
   def initialize
@@ -20,3 +20,4 @@ class Stack
     @first.nil?
   end
 end
+

@@ -1,26 +1,31 @@
 require_relative 'node'
 
-class LinkedListNode
-  attr_accessor :value, :next_node
-  
-  def initialize(value, next_node=nil)
-    @value = value
-    @next_node = next_node
-  end   
-end
+class LinkedList
+  attr_accessor :head
+  def initialize
+    @head = nil
+  end
 
-def print_values(list_node)
-  if list_node
-    print "#{list_node.value} --> "
-    print_values(list_node.next_node)
-  else
-    print "nil\n"
-    return
+  def add(value)
+    if @head
+    else
+      @head = Node.new(value)
+    end
+  end
+
+  def reverse
+  end
+
+  def print_list
+    node = @head
+    puts node
+
+    while (node = node.next_node)
+      puts node
+    end
   end
 end
 
-node1 = LinkedListNode.new(37)
-node2 = LinkedListNode.new(99, node1)
-node3 = LinkedListNode.new(12, node2)
-
-print_values(node3)
+list = LinkedList.new
+list.add(20)
+list.print_list
