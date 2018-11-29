@@ -1,7 +1,5 @@
 require_relative 'node'
 
-
-
 class LinkedList
   attr_accessor :head
 
@@ -29,9 +27,6 @@ class LinkedList
     node = find(find_data)
     if node
       node.data = update_data
-      true
-    else
-      false
     end
   end
 
@@ -43,12 +38,13 @@ class LinkedList
       if parent
         parent.next = node.next
       else
-        @hed = node.next
+        @head = node.next
       end
-      true
-    else
-      false
     end
+  end
+
+  def reverse_list
+
   end
 
   def print(current=@head)

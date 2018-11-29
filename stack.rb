@@ -20,4 +20,3 @@ class Stack
     @first.nil?
   end
 end
-
