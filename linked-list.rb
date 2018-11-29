@@ -1,70 +1,39 @@
-require_relative 'node'
+require_relative 'stack'
 
-class LinkedList
-  attr_accessor :head
+class LinkedListNode
+  attr_accessor :value, :next_node
 
-  def initialize(data)
-    @head = Node.new(data)
-  end
-
-  def insert(data, current=@head)
-    if current.next
-      insert(data, current.next)
-    else
-      current.next = Node.new(data)
-    end
-  end
-  
-  def find(data, current=@head)
-    if current.data == data
-      current
-    else
-      find(data, current.next) if current.next
-    end
-  end
-
-  def update(find_data, update_data, current=@head)
-    node = find(find_data)
-    if node
-      node.data = update_data
-    end
-  end
-
-  def destroy(data)
-    node = find(data)
-    parent = find_parent(data)
-    if node
-      parent = find_parent(data)
-      if parent
-        parent.next = node.next
-      else
-        @head = node.next
-      end
-    end
-  end
-
-  def reverse_list
-
-  end
-
-  def print(current=@head)
-    puts current.data
-    print(current.next) if current.next
-  end
-
-  private 
-
-  def find_parent(data, current=@head)
-    if current.next && current.next.data == data
-      current
-    else
-      find_parent(data, current.next) if current.next
-    end
+  def initialize(value, next_node=nil)
+    @value = value
+    @next_node = next_node
   end
 end
 
-ll = LinkedList.new("first node")
-ll.insert("second node")
-ll.insert("third node")
-ll.update("third node", "new third node")
-ll.print
+def print_values(list_node)
+  if list_node
+    print "#{list_node.value} --> "
+    print_values(list_node.next_node)
+  else
+    print "nil\n"
+    return
+  end
+end
+
+def reverse_list(list)
+  stack = Stack.new
+  while list
+    stack.push(list.value)
+    list = list.next_node
+  end
+
+  return stack.data
+end
+
+node1 = LinkedListNode.new(9)
+node2 = LinkedListNode.new(62, node1)
+node3 = LinkedListNode.new(34, node2)
+
+print_values(node3)
+puts "---------"
+revlist = reverse_list(node3)
+print_values(revlist)
