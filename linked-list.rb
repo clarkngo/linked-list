@@ -1,31 +1,74 @@
 require_relative 'node'
 
+
+
 class LinkedList
   attr_accessor :head
-  def initialize(value)
-    @head = Node.new(value, nil)
+
+  def initialize(data)
+    @head = Node.new(data)
   end
 
-  def add(value)
-    if @head
+  def insert(data, current=@head)
+    if current.next
+      insert(data, current.next)
     else
-      @head = Node.new(value)
+      current.next = Node.new(data)
+    end
+  end
+  
+  def find(data, current=@head)
+    if current.data == data
+      current
+    else
+      find(data, current.next) if current.next
     end
   end
 
-  def reverse
+  def update(find_data, update_data, current=@head)
+    node = find(find_data)
+    if node
+      node.data = update_data
+      true
+    else
+      false
+    end
   end
 
-  def print_list
-    node = @head
-    puts node
+  def destroy(data)
+    node = find(data)
+    parent = find_parent(data)
+    if node
+      parent = find_parent(data)
+      if parent
+        parent.next = node.next
+      else
+        @hed = node.next
+      end
+      true
+    else
+      false
+    end
+  end
 
-    while (node = node.next_node)
-      puts node
+  def print(current=@head)
+    puts current.data
+    print(current.next) if current.next
+  end
+
+  private 
+
+  def find_parent(data, current=@head)
+    if current.next && current.next.data == data
+      current
+    else
+      find_parent(data, current.next) if current.next
     end
   end
 end
 
-list1 = LinkedList.new(12)
-list2 = LinkedList.new(122, list1)
-list.print_list
+ll = LinkedList.new("first node")
+ll.insert("second node")
+ll.insert("third node")
+ll.update("third node", "new third node")
+ll.print
