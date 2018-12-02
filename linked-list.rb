@@ -3,8 +3,8 @@ require_relative 'node'
 class LinkedList
   attr_accessor :head
 
-  def initialize(data)
-    @head = Node.new(data)
+  def initialize
+    @head = nil
   end
 
   def insert(data, current=@head)
