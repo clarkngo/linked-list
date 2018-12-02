@@ -14,7 +14,7 @@ class LinkedList
 
   def find(data, current = @head)
     if current.data == data
-      current
+      puts current
     else
       find(data, current.next_node)
     end
@@ -35,6 +35,7 @@ linked_list = LinkedList.new
 linked_list.insert(1)
 linked_list.insert(2)
 linked_list.insert(3)
+puts "find"
 linked_list.find(2)
 
 linked_list.print_linked_list
