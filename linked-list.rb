@@ -7,15 +7,19 @@ class LinkedList
     @head = nil
   end
 
-  def insert(value)
-    # implement your code here
-    puts value
+  def insert(data)
+    @next_node = @head
+    @head = Node.new(data, @head)
   end
 
-  def add(value)
-    @current = @head
-    @head = Node.new(value, @current)
+  def find(data, current = @head)
+    if current.data == data
+      current
+    else
+      find(data, current.next_node)
+    end
   end
+
 
   def print_linked_list
     puts @head.inspect
@@ -28,9 +32,10 @@ class LinkedList
 end
 
 linked_list = LinkedList.new
-linked_list.add(1)
-linked_list.add(2)
-linked_list.add(3)
+linked_list.insert(1)
+linked_list.insert(2)
+linked_list.insert(3)
+linked_list.find(2)
 
 linked_list.print_linked_list
 linked_list.print_others
