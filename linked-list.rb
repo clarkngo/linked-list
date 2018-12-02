@@ -7,64 +7,32 @@ class LinkedList
     @head = nil
   end
 
-  def insert(data, current=@head)
-    if current.next
-      insert(data, current.next)
-    else
-      current.next = Node.new(data)
-    end
-  end
-  
-  def find(data, current=@head)
-    if current.data == data
-      current
-    else
-      find(data, current.next) if current.next
-    end
+  def insert(value)
+    # implement your code here
+    puts value
   end
 
-  def update(find_data, update_data, current=@head)
-    node = find(find_data)
-    if node
-      node.data = update_data
-    end
+  def add(value)
+    @current = @head
+    @head = Node.new(value, @current)
   end
 
-  def destroy(data)
-    node = find(data)
-    parent = find_parent(data)
-    if node
-      parent = find_parent(data)
-      if parent
-        parent.next = node.next
-      else
-        @head = node.next
-      end
-    end
+  def print_linked_list
+    puts @head.inspect
   end
 
-  def reverse_list
-
-  end
-
-  def print(current=@head)
-    puts current.data
-    print(current.next) if current.next
-  end
-
-  private 
-
-  def find_parent(data, current=@head)
-    if current.next && current.next.data == data
-      current
-    else
-      find_parent(data, current.next) if current.next
-    end
+  def print_others
+    puts @next_node.inspect
+    puts @current.inspect
   end
 end
 
-ll = LinkedList.new("first node")
-ll.insert("second node")
-ll.insert("third node")
-ll.update("third node", "new third node")
-ll.print
+linked_list = LinkedList.new
+linked_list.add(1)
+linked_list.add(2)
+linked_list.add(3)
+
+linked_list.print_linked_list
+linked_list.print_others
+
+
