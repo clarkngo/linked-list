@@ -23,9 +23,10 @@ $ cd linked-list
 $ ruby linked_list.rb
 ```
 
+
 ## License
 
-flixter is released under the [MIT license](https://mit-license.org).
+linked-list is released under the [MIT license](https://mit-license.org).
 
 ## Copyright
 
