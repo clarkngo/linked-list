@@ -17,6 +17,12 @@ git clone git@github.com:clarkngo/linked-list.git
 $ cd linked-list
 ```
 
+## Running this project
+
+```
+$ ruby linked_list.rb
+```
+
 ## License
 
 flixter is released under the [MIT license](https://mit-license.org).

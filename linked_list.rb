@@ -64,7 +64,6 @@ class LinkedList
   end
 end
 
-=begin
 # create and initialize a linked list
 linked_list = LinkedList.new
 
@@ -102,4 +101,3 @@ linked_list.shift
 
 # print all data
 linked_list.print_data
-=end
