@@ -1,23 +1,25 @@
 require_relative 'linked-list'
 
 class Stack
+  attr_accessor :list
+  
   def initialize
-    @first = nil
+    @list = LinkedList.new
   end
 
-  def push(value)
-    @first = Node.new(value, @first)
+  def push(data)
+    @list.add(data)
   end
 
   def pop
-    raise "Stack is empty" if is_empty?
-    value = @first.value
-    @first = @first.next_node
-    value
+    @list.shift
   end
 
-  def is_empty?
-    @first.nil?
+  def empty?
   end
 end
 
+linkedlist = Stack.new
+linkedlist.push(3)
+linkedlist.pop
+puts linkedlist.inspect
