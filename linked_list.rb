@@ -1,4 +1,5 @@
 require_relative 'node'
+require_relative 'stack'
 
 class LinkedList
   attr_accessor :head
@@ -34,7 +35,7 @@ class LinkedList
     @previous_node_found.next_node = current.next_node
   end
 
-  def shift
+  def shift # should be in stack class
     shift_data = @head.data
     @head = @head.next_node
     shift_data
@@ -62,8 +63,62 @@ class LinkedList
     list += "#{current.data} -> nil"
     puts list
   end
+
+  def reverse_using_stack
+    stack = Stack.new
+    current = @head
+
+    while current do
+      stack.push(current.data)
+      current = current.next_node
+    end
+
+    stack.head
+
+  end
+
+  def reverse_linked_list
+    current = @head
+    temp = nil
+
+    while current do
+      next_node = current.next_node
+      current.next_node = temp
+      temp = current
+      current = next_node
+    end
+    @head = temp
+  end
 end
 
+
+
+puts "Reverse using stack"
+## EXAMPLE #2
+linked_list = LinkedList.new
+linked_list.add(1)
+linked_list.add(2)
+linked_list.add(3)
+
+linked_list.print_data
+reverse_list = linked_list.reverse_using_stack  # returns node
+new_linked_list = LinkedList.new
+new_linked_list.head = reverse_list    # assign a node to a linked list class, this is called composition.
+new_linked_list.print_data
+
+puts "Reverse using in place"
+linked_list_test = LinkedList.new
+linked_list_test.add(4)
+linked_list_test.add(5)
+linked_list_test.add(6)
+
+linked_list_test.print_data
+linked_list_test.reverse_linked_list
+linked_list_test.print_data
+
+
+=begin 
+## EXAMPLE #1
 # create and initialize a linked list
 linked_list = LinkedList.new
 
@@ -101,3 +156,4 @@ linked_list.shift
 
 # print all data
 linked_list.print_data
+=end
