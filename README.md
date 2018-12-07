@@ -23,6 +23,20 @@ $ cd linked-list
 $ ruby linked_list.rb
 ```
 
+## Using this project
+
+Navigate to `linked_list.rb`
+instead
+
+To initialize a linked list:
+```
+
+```
+
+To add a node:
+```
+$ ruby linked_list.rb
+```
 
 ## License
 

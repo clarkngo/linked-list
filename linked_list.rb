@@ -94,7 +94,7 @@ end
 
 
 puts "Reverse using stack"
-## EXAMPLE #2
+## EXAMPLE #1
 linked_list = LinkedList.new
 linked_list.add(1)
 linked_list.add(2)
@@ -107,18 +107,18 @@ new_linked_list.head = reverse_list    # assign a node to a linked list class, t
 new_linked_list.print_data
 
 puts "Reverse using in place"
-linked_list_test = LinkedList.new
-linked_list_test.add(4)
-linked_list_test.add(5)
-linked_list_test.add(6)
+linked_list2 = LinkedList.new
+linked_list2.add(4)
+linked_list2.add(5)
+linked_list2.add(6)
 
-linked_list_test.print_data
-linked_list_test.reverse_linked_list
-linked_list_test.print_data
+linked_list2.print_data
+linked_list2.reverse_linked_list
+linked_list2.print_data
 
 
 =begin 
-## EXAMPLE #1
+## EXAMPLE #2
 # create and initialize a linked list
 linked_list = LinkedList.new
 
